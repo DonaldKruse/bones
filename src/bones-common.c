@@ -27,7 +27,8 @@ unsigned rand_int(unsigned n)
 
         // Supporting larger values for n would requires an even more
         // elaborate implementation that combines multiple calls to rand()
-    assert (n <= RAND_MAX)
+    assert (n <= RAND_MAX);
+    
         
             // Chop off all of the values that would cause skew...
     unsigned end = RAND_MAX / n; // truncate skew

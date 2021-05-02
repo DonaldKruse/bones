@@ -1,11 +1,14 @@
 CC=gcc
-CFLAGS=-g -Wall -o bones
+CFLAGS=-g -Wall 
 INC=-Iinclude/
 SRC=src
 
-bones: 
-	$(CC) $(CFLAGS) $(INC) $(SRC)/main.c
 
+bones: main.c bones-common.o
+	$(CC) $(CFLAGS) $(INC) $@ $(SRC)/main.c
+
+bones-common.o:
+	$(CC) $(CFLAGS) $(INC) -c -o $@ $(SRC)/bones-common.c
 
 clean:
 	rm -r *~
